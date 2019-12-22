@@ -25,11 +25,11 @@
 ```html
 <script
   type="module"
-  src="https://unpkg.com/@paraboly/project-name@latest/dist/project-name/project-name.esm.js"
+  src="https://unpkg.com/@paraboly/pwc-zoom-control@latest/dist/pwc-zoom-control/pwc-zoom-control.esm.js"
 ></script>
 <script
   nomodule
-  src="https://unpkg.com/@paraboly/project-name@latest/dist/project-name/project-name.js"
+  src="https://unpkg.com/@paraboly/pwc-zoom-control@latest/dist/pwc-zoom-control/pwc-zoom-control.js"
 ></script>
 ```
 
@@ -37,56 +37,50 @@
 
 ### Node Modules
 
-- Run `npm install @paraboly/project-name --save`
-- Put a script tag similar to this `<script src='node_modules/@paraboly/project-name/dist/project-name.js'></script>` in the head of your index.html
+- Run `npm install @paraboly/pwc-zoom-control --save`
+- Put a script tag similar to this `<script src='node_modules/@paraboly/pwc-zoom-control/dist/pwc-zoom-control.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
 
-- Run `npm install @paraboly/project-name --save`
-- Add an import to the npm packages `import @paraboly/project-name;`
+- Run `npm install @paraboly/pwc-zoom-control --save`
+- Add an import to the npm packages `import @paraboly/pwc-zoom-control;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Usage
 
-## Basic Usage
-
-This is just an example from pwc-animated-checkbox, you need to change it!
-
 ```html
-<pwc-animated-checkbox></pwc-animated-checkbox>
+<pwc-zoom-control zoom="10"></pwc-zoom-control>
 ```
-
-## Checkbox onCheckChange Listener Usage
-
-### JS Way
-
-This is just an example from pwc-animated-checkbox, you need to change it!
 
 ```js
-// Multiple Checkboxes
-const pwcCheckboxes = document.querySelectorAll("pwc-animated-checkbox");
-pwcCheckboxes.forEach(element => {
-  element.addEventListener("checkedEvent", event => {
-    console.log("Event: ", event.detail);
-  });
-})
-// Selects the first checkbox
-const pwcCheckbox = document.querySelector("pwc-animated-checkbox");
-pwcCheckbox.addEventListener("checkedEvent", event => {
-console.log("First Element Event: ", event.detail);
+const pwcZoomControl = document.querySelector("pwc-zoom-control");
+pwcZoomControl.addEventListener("controlTriggered", event =>
+  console.log(event.details)
+);
 ```
 
-## Future Plans
+# Details
 
-- [x] ~~Documentation~~
-- [x] ~~LICENSE~~
-- [ ] Color Customization
-- [ ] Animation Bug Fix
+## Properties
+
+| Property        | Attribute         | Description                             | Type     | Default |
+| --------------- | ----------------- | --------------------------------------- | -------- | ------- |
+| `maxZoom`       | `max-zoom`        | Max zoom for the zoom control.          | `string` | `"18"`  |
+| `minZoom`       | `min-zoom`        | Min zoom for the zoom control.          | `string` | `"1"`   |
+| `zoom`          | `zoom`            | Current zoom of the zoom control.       | `string` | `"10"`  |
+| `zoomRangeStep` | `zoom-range-step` | Zoom step for zoom range.               | `string` | `"0.1"` |
+| `zoomStep`      | `zoom-step`       | Zoom step for zoom-in zoom-out buttons. | `string` | `"1"`   |
+
+## Events
+
+| Event              | Description                                                                     | Type               |
+| ------------------ | ------------------------------------------------------------------------------- | ------------------ |
+| `controlTriggered` | Event which is triggered when there is any change on the zoom and pan controls. | `CustomEvent<any>` |
 
 ## Authors
 
-Author, author@work_email.com | author@personal_email.com
+SchemeSonic, haldun.yildiz@paraboly.com | haldun313@gmail.com
 
 ## License
 

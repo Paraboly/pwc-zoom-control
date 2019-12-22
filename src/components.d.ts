@@ -11,10 +11,25 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface PwcZoomControl {
+    /**
+    * Max zoom for the zoom control.
+    */
     'maxZoom': string;
+    /**
+    * Min zoom for the zoom control.
+    */
     'minZoom': string;
+    /**
+    * Current zoom of the zoom control.
+    */
     'zoom': string;
+    /**
+    * Zoom step for zoom range.
+    */
     'zoomRangeStep': string;
+    /**
+    * Zoom step for zoom-in zoom-out buttons.
+    */
     'zoomStep': string;
   }
 }
@@ -34,11 +49,29 @@ declare global {
 
 declare namespace LocalJSX {
   interface PwcZoomControl {
+    /**
+    * Max zoom for the zoom control.
+    */
     'maxZoom'?: string;
+    /**
+    * Min zoom for the zoom control.
+    */
     'minZoom'?: string;
+    /**
+    * Event which is triggered when there is any change on the zoom and pan controls.
+    */
     'onControlTriggered'?: (event: CustomEvent<any>) => void;
+    /**
+    * Current zoom of the zoom control.
+    */
     'zoom'?: string;
+    /**
+    * Zoom step for zoom range.
+    */
     'zoomRangeStep'?: string;
+    /**
+    * Zoom step for zoom-in zoom-out buttons.
+    */
     'zoomStep'?: string;
   }
 

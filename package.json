@@ -1,7 +1,7 @@
 {
   "name": "@paraboly/pwc-zoom-control",
   "version": "0.0.1",
-  "description": "Template repository for Paraboly Web Component Libraries",
+  "description": "Advance zoom and pan controls created",
   "keywords": [
     "paraboly",
     "stencil",
@@ -14,7 +14,7 @@
   "homepage": "https://www.paraboly.com",
   "bugs": "https://github.com/Paraboly/pwc-zoom-control/issues",
   "repository": "git@github.com:Paraboly/pwc-zoom-control.git",
-  "author": "Author (https://author.url.here/) <author@email.com>",
+  "author": "SchemeSonic (https://schemesonic.github.io/) <haldun.yildiz@paraboly.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

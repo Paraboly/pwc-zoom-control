@@ -7,10 +7,25 @@ import { Component, h, Element, Listen, Event, EventEmitter, Prop } from "@stenc
 })
 export class PwcZoomControl {
   @Element() element: HTMLElement;
+  /**
+   * Zoom step for zoom-in zoom-out buttons.
+   */
   @Prop() zoomStep: string = "1";
+  /**
+   * Zoom step for zoom range.
+   */
   @Prop() zoomRangeStep: string = "0.1";
+  /**
+   * Current zoom of the zoom control.
+   */
   @Prop() zoom: string = "10";
+  /**
+   * Max zoom for the zoom control.
+   */
   @Prop() maxZoom: string = "18";
+  /**
+   * Min zoom for the zoom control.
+   */
   @Prop() minZoom: string = "1";
 
   @Listen('click', { capture: true })
@@ -19,7 +34,9 @@ export class PwcZoomControl {
     const controlValue = ev.composedPath()[0].value;
     this.onControlClicked(controlID, controlValue);
   }
-
+  /**
+   * Event which is triggered when there is any change on the zoom and pan controls.
+   */
   @Event() controlTriggered: EventEmitter;
   controlTriggeredHandler(type, value) {
     this.controlTriggered.emit({ type, value });
