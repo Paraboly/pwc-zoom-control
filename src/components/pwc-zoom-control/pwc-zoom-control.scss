@@ -1,0 +1,220 @@
+$control-color: #fff;
+$background: rgb(228, 225, 225);
+$box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
+$box-shadow-light: inset rgba(0, 0, 0, 0.3) 0 0 4px;
+$btn-color: #292929;
+$hover-color: #44a8c7;
+
+#mapPan {
+  background: $control-color;
+  width: 65px;
+  height: 65px;
+  border-radius: 34px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  box-shadow: $box-shadow;
+  border: solid 2px $background;
+}
+#panCentre {
+  background: $background;
+  width: 21px;
+  height: 21px;
+  border-radius: 11px;
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  box-shadow: $box-shadow-light;
+}
+.pan-split {
+  background: $background;
+  box-shadow: $box-shadow-light;
+  width: 3px;
+  height: 67px;
+  position: absolute;
+  top: -1px;
+  left: 31px;
+}
+#panSplitVert {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#panSplitHoriz {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+/***
+this is the "hotspot" area for arrow
+it's bigger than the arrows themselves
+***/
+.pan-arrow {
+  width: 25px;
+  height: 20px;
+  position: absolute;
+  cursor: pointer;
+}
+#panTop {
+  top: 1px;
+  left: 20px;
+}
+#panBottom {
+  bottom: 1px;
+  left: 20px;
+}
+#panRight {
+  top: 20px;
+  right: 1px;
+  width: 20px;
+  height: 25px;
+}
+#panLeft {
+  top: 20px;
+  left: 1px;
+  width: 20px;
+  height: 25px;
+}
+
+/* this is the first layer of the arrow */
+.pan-arrow:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: solid 7px transparent;
+  position: absolute;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+#panTop:before {
+  top: 3px;
+  left: 6px;
+  border-bottom-color: $btn-color;
+  border-top-width: 0;
+}
+#panTop:hover:before {
+  border-bottom-color: $hover-color;
+}
+#panRight:before {
+  top: 6px;
+  right: 3px;
+  border-left-color: $btn-color;
+  border-right-width: 0;
+}
+#panRight:hover:before {
+  border-left-color: $hover-color;
+}
+#panBottom:before {
+  bottom: 3px;
+  left: 6px;
+  border-top-color: $btn-color;
+  border-bottom-width: 0;
+}
+#panBottom:hover:before {
+  border-top-color: $hover-color;
+}
+#panLeft:before {
+  top: 6px;
+  left: 3px;
+  border-right-color: $btn-color;
+  border-left-width: 0;
+}
+#panLeft:hover:before {
+  border-right-color: $hover-color;
+}
+
+/* this is the second layer of the arrow */
+.pan-arrow:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  position: absolute;
+}
+#panTop:after {
+  border-bottom-color: $control-color;
+  border-top-width: 0;
+  top: 5px;
+  left: 8px;
+}
+#panRight:after {
+  border-left-color: $control-color;
+  border-right-width: 0;
+  top: 8px;
+  right: 5px;
+}
+#panBottom:after {
+  border-top-color: $control-color;
+  border-bottom-width: 0;
+  bottom: 5px;
+  left: 8px;
+}
+#panLeft:after {
+  border-right-color: $control-color;
+  border-left-width: 0;
+  top: 8px;
+  left: 5px;
+}
+
+#mapZoom {
+  width: 16px;
+  height: 150px;
+  position: absolute;
+  top: 68px;
+  left: 22px;
+}
+.zoom-control {
+  background: $control-color;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  width: 16px;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+}
+#zoomIn {
+  height: 34px;
+  top: 0;
+}
+#zoomOut {
+  height: 16px;
+  bottom: 0;
+}
+
+/* the plus and minus signs */
+.zoom-control:before,
+#zoomIn:after {
+  content: "";
+  background: $btn-color;
+  position: absolute;
+}
+.zoom-control:before {
+  width: 8px;
+  height: 2px;
+  left: 4px;
+  bottom: 7px;
+}
+#zoomIn:after {
+  width: 2px;
+  height: 8px;
+  left: 7px;
+  bottom: 4px;
+}
+.zoom-control:hover:before,
+.zoom-control:hover:after {
+  background: $hover-color !important;
+}
+
+#zoomRange {
+  background: $background;
+  width: 100px;
+  height: 3px;
+  position: absolute;
+  left: -44px;
+  top: 81px;
+  transform: rotate(-90deg);
+  appearance: none;
+  -webkit-appearance: none;
+}

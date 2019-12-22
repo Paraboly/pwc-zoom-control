@@ -10,53 +10,40 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface ComponentName {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+  interface PwcZoomControl {
+    'maxZoom': string;
+    'minZoom': string;
+    'zoom': string;
+    'zoomRangeStep': string;
+    'zoomStep': string;
   }
 }
 
 declare global {
 
 
-  interface HTMLComponentNameElement extends Components.ComponentName, HTMLStencilElement {}
-  var HTMLComponentNameElement: {
-    prototype: HTMLComponentNameElement;
-    new (): HTMLComponentNameElement;
+  interface HTMLPwcZoomControlElement extends Components.PwcZoomControl, HTMLStencilElement {}
+  var HTMLPwcZoomControlElement: {
+    prototype: HTMLPwcZoomControlElement;
+    new (): HTMLPwcZoomControlElement;
   };
   interface HTMLElementTagNameMap {
-    'component-name': HTMLComponentNameElement;
+    'pwc-zoom-control': HTMLPwcZoomControlElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface ComponentName {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+  interface PwcZoomControl {
+    'maxZoom'?: string;
+    'minZoom'?: string;
+    'onControlTriggered'?: (event: CustomEvent<any>) => void;
+    'zoom'?: string;
+    'zoomRangeStep'?: string;
+    'zoomStep'?: string;
   }
 
   interface IntrinsicElements {
-    'component-name': ComponentName;
+    'pwc-zoom-control': PwcZoomControl;
   }
 }
 
@@ -66,7 +53,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'component-name': LocalJSX.ComponentName & JSXBase.HTMLAttributes<HTMLComponentNameElement>;
+      'pwc-zoom-control': LocalJSX.PwcZoomControl & JSXBase.HTMLAttributes<HTMLPwcZoomControlElement>;
     }
   }
 }

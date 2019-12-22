@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/project-name.esm.js"></script>
-    <script nomodule src="/build/project-name.js"></script>
-  </head>
-  <body>
-    <component-name
-      first="Stencil"
-      last="'Don't call me a framework' JS"
-    ></component-name>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/pwc-zoom-control.esm.js"></script>
+  <script nomodule src="/build/pwc-zoom-control.js"></script>
+</head>
+
+<body>
+  <style>
+    .debugger {
+      position: absolute;
+      top: 300px;
+      left: 10px;
+      width: 240px;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+  </style>
+  <pwc-zoom-control zoom="10"></pwc-zoom-control>
+  <div class="debugger">
+    <h5>Debugger</h5>
+    <div id="logs"></div>
+  </div>
+  <script>
+    const pwcZoomControl = document.querySelector("pwc-zoom-control");
+    const logs = document.querySelector("#logs");
+    pwcZoomControl.addEventListener("controlTriggered", (event) => {
+      logs.innerText += `${JSON.stringify(event.detail)}\n`;
+    })
+  </script>
+</body>
+
 </html>
